@@ -22,7 +22,6 @@ MainView::MainView(QWidget *parent) :
     auto newPhraseBtn =  new QPushButton();
     newPhraseBtn->setText("New Phrase");
     hlmain->addWidget(newPhraseBtn);
-    //broken at this point
     connect (newPhraseBtn,
              &QPushButton::clicked,
              this,
