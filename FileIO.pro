@@ -25,10 +25,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainview.cpp
+    controller/mainview.cpp \
+    view/gamebutton.cpp
+
+    main.cpp \
 
 HEADERS += \
-        mainview.h
+    controller/mainview.h \
+    view/gamebutton.h
 
 FORMS += \
         mainview.ui

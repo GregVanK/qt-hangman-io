@@ -1,5 +1,6 @@
-#include "mainview.h"
+#include "controller/mainview.h"
 #include "ui_mainview.h"
+#include "view/gamebutton.h"
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QPushButton>
@@ -14,12 +15,26 @@ MainView::MainView(QWidget *parent) :
 {
     ui->setupUi(this);
     loadPhrases();
+
     //layouts
     auto vlmain = new QVBoxLayout(ui->centralWidget);
     auto hlmain = new QHBoxLayout();
+    auto* grid = new QGridLayout();
+    vlmain->addLayout(grid);
     vlmain->addLayout(hlmain);
 
-    //buttons
+    alphabet = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+    for(int i = 0; i < 26; i++){
+            QPushButton* btn = new GameButton(i);
+            btn->setText(QString(alphabet[i]));
+            grid->addWidget(btn, i/12, i%12);//connect a button to a section of the grid
+            connect(btn,
+                    &QPushButton::clicked,
+                    this,
+                    &MainView::letterPressed);
+            buttons.push_back(btn);//adds button to vector
+        }
+    //newPhrase
     auto newPhraseBtn =  new QPushButton();
     newPhraseBtn->setText("New Phrase");
     hlmain->addWidget(newPhraseBtn);
@@ -36,6 +51,12 @@ MainView::MainView(QWidget *parent) :
 MainView::~MainView()
 {
     delete ui;
+}
+
+void MainView::letterPressed(){
+    auto* btn = dynamic_cast<GameButton*>(sender()); // get button
+    QChar letter = alphabet[btn->getIndex()];
+    displayPhrase->setText(QString(letter));
 }
 
 void MainView::onClick()
