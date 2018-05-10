@@ -6,6 +6,7 @@
 #include <QLabel>
 #include <QDebug>
 #include <QFile>
+#include <iostream>
 
 MainView::MainView(QWidget *parent) :
     QMainWindow(parent),
@@ -39,7 +40,7 @@ MainView::~MainView()
 
 void MainView::onClick()
 {
-    displayPhrase->setText(phrases[qrand()%(phrases.size()+1)]);
+    displayPhrase->setText(phrases[qrand()%(phrases.size())]); //
 }
 
 void MainView::loadPhrases()
