@@ -37,9 +37,10 @@ class GameButton : public QPushButton
 {
 public:
     GameButton(int index, QWidget* parent = 0);
-    int getIndex() const;
+    QChar getValue() const;
 private:
     int index;
+    std::vector<QChar> alphabet;
 };
 
 #endif // GAMEBUTTON_H

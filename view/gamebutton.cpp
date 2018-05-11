@@ -39,10 +39,11 @@ GameButton::GameButton(int index, QWidget *parent) : QPushButton(parent), index(
  setFont(font);
  setMinimumHeight(20);
  setMinimumWidth(20);
+ alphabet = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
 }
 
-int GameButton::getIndex() const
+QChar GameButton::getValue() const
 {
-    return index;
+    return alphabet[index];
 }
 

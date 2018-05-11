@@ -55,7 +55,7 @@ MainView::~MainView()
 
 void MainView::letterPressed(){
     auto* btn = dynamic_cast<GameButton*>(sender()); // get button
-    QChar letter = alphabet[btn->getIndex()];
+    QChar letter = btn->getValue();
     displayPhrase->setText(QString(letter));
 }
 
