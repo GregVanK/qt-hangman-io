@@ -61,7 +61,9 @@ void MainView::letterPressed(){
 
 void MainView::onClick()
 {
-    displayPhrase->setText(hangman.getRandPhrase()); //
+    hangman.getRandPhrase();
+    hangman.hidePhrase();
+    displayPhrase->setText(hangman.getHidden()); //
 }
 
 void MainView::loadPhrases()
@@ -80,3 +82,4 @@ void MainView::loadPhrases()
     }
     iFile.close();
 }
+

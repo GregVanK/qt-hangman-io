@@ -27,7 +27,6 @@ private:
 private:
     Ui::MainView *ui;
     QLabel* displayPhrase;
-    std::vector<QString> phrases;
     std::vector<QPushButton*> buttons;
     std::vector<QChar> alphabet;
     Hangman hangman;
