@@ -61,7 +61,7 @@ void MainView::letterPressed(){
 
 void MainView::onClick()
 {
-    displayPhrase->setText(phrases[qrand()%(phrases.size())]); //
+    displayPhrase->setText(hangman.getRandPhrase()); //
 }
 
 void MainView::loadPhrases()
@@ -75,7 +75,7 @@ void MainView::loadPhrases()
     QString line = in.readLine();
     while(!in.atEnd())
     {
-        phrases.push_back(line);
+        hangman.addPhrase(line);
         line = in.readLine();
     }
     iFile.close();

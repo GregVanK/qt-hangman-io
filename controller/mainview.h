@@ -5,6 +5,7 @@
 #include <vector>
 #include <QString>
 #include <QPushButton>
+#include "model/hangman.h"
 
 class QLabel;
 namespace Ui {
@@ -29,6 +30,7 @@ private:
     std::vector<QString> phrases;
     std::vector<QPushButton*> buttons;
     std::vector<QChar> alphabet;
+    Hangman hangman;
 };
 
 #endif // MAINVIEW_H
